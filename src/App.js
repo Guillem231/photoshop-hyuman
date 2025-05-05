@@ -39,23 +39,23 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  useEffect(() => {
-    // Mostrar alerta al cargar la página
-    showNativeAlert();
+  // useEffect(() => {
+  //   // Mostrar alerta al cargar la página
+  //   showNativeAlert();
     
-    // Mostrar alerta cuando el usuario regresa a la pestaña
-    const handleVisibilityChange = () => {
-      if (document.visibilityState === 'visible') {
-        showNativeAlert();
-      }
-    };
+  //   // Mostrar alerta cuando el usuario regresa a la pestaña
+  //   const handleVisibilityChange = () => {
+  //     if (document.visibilityState === 'visible') {
+  //       showNativeAlert();
+  //     }
+  //   };
     
-    document.addEventListener('visibilitychange', handleVisibilityChange);
+  //   document.addEventListener('visibilitychange', handleVisibilityChange);
     
-    return () => {
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
-    };
-  }, []);
+  //   return () => {
+  //     document.removeEventListener('visibilitychange', handleVisibilityChange);
+  //   };
+  // }, []);
 
   const showNativeAlert = () => {
     // Intentar usar notificaciones nativas primero
