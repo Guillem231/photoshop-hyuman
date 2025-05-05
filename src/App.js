@@ -95,7 +95,7 @@ function App() {
 
   const showBrowserAlert = () => {
     setTimeout(() => {
-      window.confirm("🚧 BUILDING HYUMAN 🚧\n\nThis experience is currently in development. Create your own designs and express yourself.\n\n#WearYourBeliefs");
+      window.confirm(" BUILDING HYUMAN \n\nThis experience is currently in development. Create your own designs and express yourself.\n\n#WearYourBeliefs");
     }, 500);
   };
 
@@ -477,7 +477,6 @@ function App() {
   <div className="native-alert-overlay" onClick={() => setShowAlert(false)}>
     <div className="native-alert" onClick={(e) => e.stopPropagation()}>
       <div className="native-alert-header">
-        <div className="native-alert-icon">🚧</div>
         <div className="native-alert-title">BUILDING HYUMAN</div>
         <div className="native-alert-close" onClick={() => setShowAlert(false)}>×</div>
       </div>
