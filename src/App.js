@@ -23,6 +23,7 @@ function App() {
   const [showFilters, setShowFilters] = useState(false);
   const [showAlert, setShowAlert] = useState(true);
   const [fontLoaded, setFontLoaded] = useState(false);
+  const [buildProgress, setBuildProgress] = useState(65); // Porcentaje de construcción
 
 
   const colors = ['#000000', '#FFFFFF', '#757963', '#FF0000', '#0000FF', '#FFFF00'];
@@ -101,7 +102,7 @@ function App() {
 
   const showNotification = () => {
     const notification = new Notification("BUILDING HYUMAN", {
-      body: "This experience is currently in development. Create your own designs and express yourself. #WearYourBeliefs",
+      body: "This experience is currently in development.  ",
       icon: "/logo192.png" // Asegúrate de tener este archivo en tu carpeta public
     });
     
@@ -113,7 +114,7 @@ function App() {
 
   const showBrowserAlert = () => {
     setTimeout(() => {
-      window.confirm(" BUILDING HYUMAN \n\nThis experience is currently in development. Create your own designs and express yourself.\n\n#WearYourBeliefs");
+      window.confirm(" BUILDING HYUMAN \n\nThis experience is currently in development.");
     }, 500);
   };
 
@@ -227,7 +228,16 @@ function App() {
           <span>Help</span>
         </div>
       </div>
-      
+      <div className="build-indicator">
+        <div className="build-label">BUILDING PROGRESS</div>
+        <div className="build-progress-container">
+          <div 
+            className="build-progress-bar" 
+            style={{width: `${buildProgress}%`}}
+          ></div>
+        </div>
+        <div className="build-percentage">{buildProgress}%</div>
+      </div>
       <div className="photoshop-workspace">
         <div className="tools-panel">
           <div className={`tool-item ${tool === 'brush' ? 'active' : ''}`} onClick={() => setTool('brush')}>
@@ -312,8 +322,8 @@ function App() {
                 {/* HYUMAN Text */}
                 {fontLoaded && (
                   <Text
-                    text="HYUMAN"
-                    fontSize={Math.max(50, stageSize.width * 0.10)} // Mínimo 14px
+                    text="BUILDING HYUMAN"
+                    fontSize={Math.max(40, stageSize.width * 0.08)} // Reducido ligeramente para que quepa
                     fontFamily="AtariKids"
                     fill="#00000"
                     opacity={0.9}
@@ -321,7 +331,8 @@ function App() {
                     y={stageSize.height/2 - stageSize.width * 0.12}
                     align="center"
                     width={stageSize.width}
-                    offsetX={stageSize.width * 0.5}                />
+                    offsetX={stageSize.width * 0.5}
+                  />
                 )}
                  {/* BUILDING Text */}
 
@@ -333,9 +344,9 @@ function App() {
                     fontSize={Math.max(17, stageSize.width * 0.03)} // Mínimo 14px
                     fontFamily="AtariKids"
                     fill="#00000"
-                    opacity={0.9}
+                    opacity={0.4}
                     x={stageSize.width * 0.5}
-                    y={stageSize.height/2 + stageSize.width * 0.02}
+                    y={stageSize.height/2 + stageSize.width * 0.12}
                     align="center"
                     width={stageSize.width}
                     offsetX={stageSize.width * 0.5}                />
@@ -502,6 +513,7 @@ function App() {
       </div>
       <div className="native-alert-body">
         <p>This experience is currently in development.</p>
+        <p>Stay tuned for the official launch.</p>
       </div>
       <div className="native-alert-footer">
         <div className="native-alert-progress">
@@ -514,7 +526,6 @@ function App() {
     </div>
   </div>
 )}
-
 
     </div>
     

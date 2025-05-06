@@ -392,6 +392,24 @@ body {
   max-width: 90%;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
   font-family: "Times New Roman", Times, serif;
+  position: relative;
+}
+
+.native-alert::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(0, 0, 0, 0.05) 10px,
+    rgba(0, 0, 0, 0.05) 20px
+  );
+  pointer-events: none;
 }
 
 .native-alert-header {
@@ -435,6 +453,11 @@ body {
 
 .native-alert-body p {
   margin: 0 0 10px 0;
+}
+
+.native-alert-body p:last-child {
+  font-weight: bold;
+  margin-top: 15px;
 }
 
 .native-alert-footer {
@@ -495,4 +518,38 @@ body {
   .native-alert-body {
     font-size: 13px;
   }
+}
+
+.build-indicator {
+  background-color: var(--ps-medium);
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--ps-border);
+}
+
+.build-label {
+  font-size: 12px;
+  margin-right: 10px;
+  font-family: 'AtariKids', sans-serif;
+}
+
+.build-progress-container {
+  flex: 1;
+  height: 8px;
+  background-color: var(--ps-dark);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.build-progress-bar {
+  height: 100%;
+  background-color: var(--hyuman-green);
+  transition: width 0.5s ease;
+}
+
+.build-percentage {
+  margin-left: 10px;
+  font-size: 12px;
+  font-weight: bold;
 }
