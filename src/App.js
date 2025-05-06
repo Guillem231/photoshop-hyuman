@@ -482,7 +482,6 @@ function App() {
       </div>
       <div className="native-alert-body">
         <p>This experience is currently in development.</p>
-        <p>Create your own designs and express yourself.</p>
       </div>
       <div className="native-alert-footer">
         <div className="native-alert-progress">
