@@ -22,6 +22,7 @@ function App() {
   const [contrast, setContrast] = useState(0);
   const [showFilters, setShowFilters] = useState(false);
   const [showAlert, setShowAlert] = useState(true);
+  const [fontLoaded, setFontLoaded] = useState(false);
 
 
   const colors = ['#000000', '#FFFFFF', '#757963', '#FF0000', '#0000FF', '#FFFF00'];
@@ -56,6 +57,23 @@ function App() {
   //     document.removeEventListener('visibilitychange', handleVisibilityChange);
   //   };
   // }, []);
+
+  useEffect(() => {
+    // Crear un elemento de fuente para precargar
+    const font = new FontFace('AtariKids', 'url(/fonts/AtariKids.woff2)');
+    
+    // Cargar la fuente
+    font.load().then(loadedFont => {
+      // Añadir la fuente al registro de fuentes del documento
+      document.fonts.add(loadedFont);
+      // Marcar la fuente como cargada
+      setFontLoaded(true);
+    }).catch(error => {
+      console.error('Error cargando la fuente:', error);
+      // En caso de error, mostrar el texto de todos modos
+      setFontLoaded(true);
+    });
+  }, []);
 
   const showNativeAlert = () => {
     // Intentar usar notificaciones nativas primero
@@ -292,32 +310,36 @@ function App() {
                
                 
                 {/* HYUMAN Text */}
-                <Text
-                  text="HYUMAN"
-                  fontSize={Math.max(50, stageSize.width * 0.10)} // Mínimo 14px
-                  fontFamily="AtariKids"
-                  fill="#00000"
-                  opacity={0.9}
-                  x={stageSize.width * 0.5}
-                  y={stageSize.height/2 - stageSize.width * 0.12}
-                  align="center"
-                  width={stageSize.width}
-                  offsetX={stageSize.width * 0.5}                />
+                {fontLoaded && (
+                  <Text
+                    text="HYUMAN"
+                    fontSize={Math.max(50, stageSize.width * 0.10)} // Mínimo 14px
+                    fontFamily="AtariKids"
+                    fill="#00000"
+                    opacity={0.9}
+                    x={stageSize.width * 0.5}
+                    y={stageSize.height/2 - stageSize.width * 0.12}
+                    align="center"
+                    width={stageSize.width}
+                    offsetX={stageSize.width * 0.5}                />
+                )}
                  {/* BUILDING Text */}
 
                 
                 {/* Slogan Text */}
-                <Text
-                  text="wear your beliefs"
-                  fontSize={Math.max(17, stageSize.width * 0.03)} // Mínimo 14px
-                  fontFamily="AtariKids"
-                  fill="#00000"
-                  opacity={0.9}
-                  x={stageSize.width * 0.5}
-                  y={stageSize.height/2 + stageSize.width * 0.02}
-                  align="center"
-                  width={stageSize.width}
-                  offsetX={stageSize.width * 0.5}                />
+                {fontLoaded && (
+                  <Text
+                    text="wear your beliefs"
+                    fontSize={Math.max(17, stageSize.width * 0.03)} // Mínimo 14px
+                    fontFamily="AtariKids"
+                    fill="#00000"
+                    opacity={0.9}
+                    x={stageSize.width * 0.5}
+                    y={stageSize.height/2 + stageSize.width * 0.02}
+                    align="center"
+                    width={stageSize.width}
+                    offsetX={stageSize.width * 0.5}                />
+                )}
                 
                 {/* Uploaded Image */}
                 {uploadedImage && (
