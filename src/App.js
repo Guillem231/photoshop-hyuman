@@ -298,12 +298,11 @@ function App() {
                   fontFamily="AtariKids"
                   fill="#00000"
                   opacity={0.9}
-                  x={stageSize.width/2}
+                  x={stageSize.width * 0.5}
                   y={stageSize.height/2 - stageSize.width * 0.12}
                   align="center"
                   width={stageSize.width}
-                  offsetX={stageSize.width/2}
-                />
+                  offsetX={stageSize.width * 0.5}                />
                  {/* BUILDING Text */}
 
                 
@@ -314,12 +313,11 @@ function App() {
                   fontFamily="AtariKids"
                   fill="#00000"
                   opacity={0.9}
-                  x={stageSize.width/2}
+                  x={stageSize.width * 0.5}
                   y={stageSize.height/2 + stageSize.width * 0.02}
                   align="center"
                   width={stageSize.width}
-                  offsetX={stageSize.width/2}
-                />
+                  offsetX={stageSize.width * 0.5}                />
                 
                 {/* Uploaded Image */}
                 {uploadedImage && (
